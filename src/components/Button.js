@@ -1,15 +1,16 @@
 /** @jsxImportSource theme-ui */
 import { Link } from "theme-ui"
 import { assets } from "../assets/assets"
-const ButtonStyle = {
+
+const componentStyle = {
     display: "inline-block",
     padding: "24px 40px 24px 90px",
     textDecoration: "none",
     textAlign: "center",
     color: "primary",
-    fontSize: 6,
+    fontSize: [4, 4, 5, 6],
     overflow: "hidden",
-    boxShadow: "shadows.dark",
+    boxShadow: "dark",
     willChange: "transform",
     backgroundColor: "#000",
     // background: `url("${buttonIllustration}") no-repeat 0% 100% #000`,
@@ -19,7 +20,7 @@ const ButtonStyle = {
     "&:hover": {
         borderRadius: "pillHover",
         position: "relative",
-        transform: "scale(0.99)",
+        transform: "scale(0.97)",
         svg: {
             transform: "scale(1) translateY(-50%)",
         },
@@ -38,7 +39,7 @@ export const Button = ({ label, href, style }) => {
     return (
         <Link
             variant="shadows.dark"
-            sx={{ ...ButtonStyle, ...style }}
+            sx={{ ...componentStyle, ...style }}
             href={href}
         >
             {assets.buttonIllustration} {label}

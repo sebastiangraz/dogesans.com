@@ -6,6 +6,22 @@ const colors = {
 }
 // const space = [0, 4, 8, 12, 16, 20, 28, 36, 48, 72, 128];
 const space = [0, 4, 8, 12, 16, 24, 32, 48, 72, 128]
+const animations = {
+    flop: {
+        animationName: "flop",
+        animationDuration: "0.9s",
+        animationTimingFunction: "cubic-bezier(1, 0.82, 0.165, 1)",
+        animationDirection: "alternate",
+        animationIterationCount: "infinite",
+    },
+    wiggle: {
+        animationName: "flop",
+        animationDuration: "1s",
+        animationTimingFunction: "linear",
+        animationDirection: "alternate",
+        animationIterationCount: "infinite",
+    },
+}
 export const scroll = {
     "&::-webkit-scrollbar": {
         width: "6px",
@@ -26,17 +42,16 @@ export const scroll = {
 export default {
     space: space,
     sizes: space,
+    animations: animations,
+    fontSizes: space,
+    colors: colors,
     shadows: {
-        dark: {
-            boxShadow:
-                "0px 108px 80px rgba(125, 29, 4, 0.1), 0px 54.0527px 40.0391px rgba(125, 29, 4, 0.1297), 0px 32.5588px 24.1177px rgba(125, 29, 4, 0.136834), 0px 20.8654px 15.4559px rgba(125, 29, 4, 0.119888), 0px 13.5233px 10.0172px rgba(125, 29, 4, 0.105), 0px 8.51275px 6.30574px rgba(125, 29, 4, 0.0901121), 0px 4.8911px 3.62304px rgba(125, 29, 4, 0.0731663), 0px 2.1527px 1.59459px rgba(125, 29, 4, 0.0503301);",
-        },
-        light: {
-            boxShadow:
-                "0px 103px 80px rgba(125, 29, 4, 0.05), 0px 47.62px 36.9864px rgba(125, 29, 4, 0.0370838), 0px 27.2471px 21.1628px rgba(125, 29, 4, 0.031339), 0px 16.5388px 12.8457px rgba(125, 29, 4, 0.0269974), 0px 9.96535px 7.74008px rgba(125, 29, 4, 0.0230026), 0px 5.54935px 4.31018px rgba(125, 29, 4, 0.018661), 0px 2.38674px 1.85378px rgba(125, 29, 4, 0.0129162);",
-        },
+        dark: "0px 108px 80px rgba(125, 29, 4, 0.1), 0px 54.0527px 40.0391px rgba(125, 29, 4, 0.1297), 0px 32.5588px 24.1177px rgba(125, 29, 4, 0.136834), 0px 20.8654px 15.4559px rgba(125, 29, 4, 0.119888), 0px 13.5233px 10.0172px rgba(125, 29, 4, 0.105), 0px 8.51275px 6.30574px rgba(125, 29, 4, 0.0901121), 0px 4.8911px 3.62304px rgba(125, 29, 4, 0.0731663), 0px 2.1527px 1.59459px rgba(125, 29, 4, 0.0503301);",
+        light: "0px 103px 80px rgba(125, 29, 4, 0.05), 0px 47.62px 36.9864px rgba(125, 29, 4, 0.0370838), 0px 27.2471px 21.1628px rgba(125, 29, 4, 0.031339), 0px 16.5388px 12.8457px rgba(125, 29, 4, 0.0269974), 0px 9.96535px 7.74008px rgba(125, 29, 4, 0.0230026), 0px 5.54935px 4.31018px rgba(125, 29, 4, 0.018661), 0px 2.38674px 1.85378px rgba(125, 29, 4, 0.0129162);",
     },
     radii: {
+        circle: "58% 58% 60% 50%",
+        rounded: "44px 39px 42px 44px/29px 47px 40px 42px",
         pill: "240px 190px 120px 140px/180px 150px 153px 120px",
         pillHover: "230px 130px 230px 150px/120px 150px 153px 150px",
     },
@@ -59,8 +74,7 @@ export default {
         heading: "-0.11em",
         caps: "0.011em",
     },
-    fontSizes: space,
-    colors: colors,
+
     openType: {
         dlig: {
             fontFeatureSettings: `"dlig"`,
@@ -88,25 +102,15 @@ export default {
             mb: ["1.5em"],
         },
         h1: {
-            fontSize: "64px",
+            fontSize: [5, 7, 8, 8],
             fontWeight: "normal",
             fontVariationSettings: '"FLOP" 0, "ital" 0',
-            animationName: "flop",
-            animationDuration: "0.9s",
-            animationTimingFunction: "cubic-bezier(1, 0.82, 0.165, 1)",
-            animationDirection: "alternate",
-            animationIterationCount: "infinite",
             lineHeight: "headingXL",
         },
         h2: {
             fontSize: "32px",
             fontWeight: "normal",
             fontVariationSettings: '"FLOP" 0, "ital" 0',
-            animationName: "flop",
-            animationDuration: "0.9s",
-            animationTimingFunction: "cubic-bezier(1, 0.82, 0.165, 1)",
-            animationDirection: "alternate",
-            animationIterationCount: "infinite",
             lineHeight: "heading",
         },
     },
@@ -150,5 +154,6 @@ export default {
             display: "block",
             maxWidth: "100%",
         },
+        "input[type=range]": {},
     },
 }
