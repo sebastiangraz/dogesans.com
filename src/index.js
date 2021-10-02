@@ -9,9 +9,7 @@ const container = document.getElementById("root")
 const root = ReactDOM.createRoot(container)
 
 root.render(
-    <React.StrictMode>
-        <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
-    </React.StrictMode>
+    <ThemeProvider theme={theme}>
+        <App />
+    </ThemeProvider>
 )

@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
-import React, { memo, useState, useEffect } from "react"
+import React from "react"
 import { assets } from "../assets/assets"
-import { useThemeUI } from "theme-ui"
 
 const size = ["2rem", "2.5rem", "3.5rem"]
 
@@ -46,13 +45,12 @@ const componentStyle = {
             ...thumb,
         },
         "&::-moz-range-thumb": {
+            border: "none",
             ...thumb,
         },
     },
 }
 const SliderComponent = ({ children }) => {
-    const context = useThemeUI()
-    const { theme } = context
     return (
         <div
             sx={{

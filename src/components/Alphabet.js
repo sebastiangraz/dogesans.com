@@ -34,7 +34,7 @@ const alphabet = [
     "#",
 ]
 export const AlphabetComponent = () => {
-    const [value, onChange] = useState(50)
+    const [value, onChange] = useState(49)
     return (
         <>
             <Grid gap={[7, 9]} columns={["1fr", "1fr 1fr"]}>
@@ -47,6 +47,7 @@ export const AlphabetComponent = () => {
                     {alphabet.map((e) => {
                         return (
                             <Heading
+                                key={e}
                                 variant="h1"
                                 sx={{
                                     fontVariationSettings: `"ital" ${value}`,
@@ -69,6 +70,7 @@ export const AlphabetComponent = () => {
                         (e) => {
                             return (
                                 <Heading
+                                    key={e}
                                     sx={{
                                         fontVariationSettings: `"ital" ${value}`,
                                         textTransform: "lowercase",
@@ -99,7 +101,6 @@ export const AlphabetComponent = () => {
                         min="1"
                         value={value}
                         max="100"
-                        class="slider"
                     />
                 </Slider>
                 <Heading variant="h1">italic</Heading>

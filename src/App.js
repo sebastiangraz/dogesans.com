@@ -1,12 +1,14 @@
 /** @jsxImportSource theme-ui */
 
 import { Button } from "./components/Button"
+import { Saucisse } from "./components/Saucisse"
 import { Alphabet } from "./components/Alphabet"
 import { useThemeUI, Heading, Text, Grid, Box, Link } from "theme-ui"
 import { assets } from "./assets/assets"
 
 import "./index.css"
 import logo from "./assets/logo.svg"
+
 function App() {
     const context = useThemeUI()
     const { theme } = context
@@ -21,9 +23,12 @@ function App() {
     }
     return (
         <div className="App">
+            <Box sx={{ position: "absolute", right: 0, top: 0 }}>
+                <Saucisse />
+            </Box>
             <Grid py={9} gap={8} variant="grids.row">
                 <Grid columns={["1fr", "max-content auto"]}>
-                    <Grid sx={{ justifyItems: "center" }}>
+                    <Grid sx={{ justifyItems: "center", userSelect: "none" }}>
                         <img src={logo} alt="Logo" />
                         <Grid gap={3} columns={"max-content max-content"}>
                             <Link href="#">
@@ -37,6 +42,7 @@ function App() {
 
                     <Grid
                         sx={{
+                            userSelect: "none",
                             justifyItems: "center",
                             justifySelf: ["center", "end"],
                         }}
@@ -50,6 +56,7 @@ function App() {
                     </Grid>
                 </Grid>
                 <Box sx={{ svg: { width: "100%" } }}>{assets.line}</Box>
+
                 <Heading
                     variant="h1"
                     sx={{ maxWidth: 780, ...theme.animations.wiggle }}
@@ -57,11 +64,28 @@ function App() {
                     Doge Sans typeface was created for the Dogecoin
                     cryptocurrency. But don’t let that stop you. Use it however
                     you like, it’s free foreveeeeer!{" "}
-                    <span sx={{ svg: { height: "56px" } }}>{assets.snoot}</span>
+                    <span
+                        sx={{
+                            width: "56px",
+                            marginLeft: [3, 4],
+                            position: "relative",
+                            svg: {
+                                position: "absolute",
+                                top: [0, "10px"],
+                                left: 0,
+                                height: ["24px", "40px", "56px"],
+                            },
+                        }}
+                    >
+                        {assets.snoot}
+                    </span>
                 </Heading>
+
                 <Heading
                     mb={8}
                     sx={{
+                        userSelect: "none",
+                        zIndex: -1,
                         fontWeight: 100,
                         fontFeatureSettings: `"dlig"`,
                         fontSize: `min(48vw, 640px)`,
@@ -139,7 +163,7 @@ function App() {
                             CSS recipe
                         </Heading>
                         <Grid
-                            columns={"max-content auto"}
+                            columns={[null, "max-content auto"]}
                             gap={6}
                             sx={{ alignItems: "center" }}
                         >
@@ -155,7 +179,7 @@ function App() {
                             >
                                 <Text
                                     sx={{
-                                        whiteSpace: "pre",
+                                        whiteSpace: ["auto", "pre"],
                                         display: "inline",
                                     }}
                                 >
@@ -163,7 +187,12 @@ function App() {
                                 </Text>
                             </Box>
                             <Link href="#">
-                                <Text sx={{ display: "inline" }}>
+                                <Text
+                                    sx={{
+                                        display: "inline",
+                                        whiteSpace: "pre",
+                                    }}
+                                >
                                     view source
                                 </Text>
                             </Link>
