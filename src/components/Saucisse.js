@@ -66,7 +66,7 @@ export function Saucisse() {
                 collisionFilter: { group: group },
                 frictionAir: 0.05,
 
-                // friction: 0.1,
+                friction: 0.7,
 
                 density: 0.004,
                 render: {
