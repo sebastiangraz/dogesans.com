@@ -17,7 +17,8 @@ export function Saucisse() {
         Bodies = Matter.Bodies,
         Render = Matter.Render,
         Vertices = Matter.Vertices,
-        Common = Matter.Common
+        Common = Matter.Common,
+        Events = Matter.Events
 
     Common.setDecomp(require("poly-decomp"))
 
@@ -45,15 +46,102 @@ export function Saucisse() {
         Matter.Runner.run(engine)
         Matter.Render.run(render)
 
-        var group = Body.nextGroup(true)
+        // var group = Body.nextGroup(true)
 
-        var hongery = Bodies.rectangle(200, 200, 140, 160, {
+        // var hongery = Bodies.rectangle(200, 200, 140, 160, {
+        //     isStatic: false,
+
+        //     render: {
+        //         sprite: {
+        //             yOffset: -0.02,
+        //             // xOffset: 0.241,
+        //             xScale: 0.5,
+        //             yScale: 0.5,
+        //             texture: doggo,
+        //         },
+        //     },
+        // })
+
+        // var ropeA = Composites.stack(-1200, 0, 16, 1, 1, 1, function (x, y) {
+        //     return Bodies.rectangle(-1200, y, 109, 100, {
+        //         collisionFilter: { group: group },
+        //         frictionAir: 0.05,
+
+        //         friction: 0.7,
+
+        //         density: 0.004,
+        //         render: {
+        //             sprite: {
+        //                 yOffset: 0.25,
+        //                 xScale: 0.5,
+        //                 yScale: 0.5,
+        //                 texture: sausage,
+        //             },
+        //         },
+        //     })
+        // })
+
+        // ropeA = Matter.Composite.add(ropeA, hongery)
+
+        // Composites.chain(ropeA, 0.5, 0, -0.5, 0, {
+        //     stiffness: 0.9,
+        //     length: 0,
+        //     render: { type: "line", strokeStyle: "#000", lineWidth: 2 },
+        // })
+
+        // Composite.add(world, [
+        //     ropeA,
+        //     // Constraint.create({
+        //     //     bodyB: ropeA.bodies[0],
+        //     //     pointA: { x: 1250, y: 700 },
+        //     //     length: 0,
+        //     //     stiffness: 0.6,
+        //     //     render: {
+        //     //         visible: false,
+        //     //     },
+        //     // }),
+        //     // Constraint.create({
+        //     //     bodyB: ropeA.bodies[ropeA.bodies.length - 1],
+        //     //     pointA: { x: 200, y: 0 },
+        //     //     length: 0,
+        //     //     stiffness: 0.6,
+        //     //     render: {
+        //     //         visible: false,
+        //     //     },
+        //     // }),
+        //     Constraint.create({
+        //         pointA: { x: 1250, y: 700 },
+        //         bodyB: ropeA.bodies[0],
+        //         pointB: { x: 25, y: 0 },
+        //         length: 2,
+        //         stiffness: 0.2,
+        //         render: {
+        //             visible: false,
+        //         },
+        //     }),
+        //     Constraint.create({
+        //         frictionAir: 0.07,
+        //         density: 0.004,
+        //         pointA: { x: 200, y: -70 },
+        //         bodyB: ropeA.bodies[ropeA.bodies.length - 1],
+        //         pointB: { x: -20, y: 0 },
+        //         length: 0.01,
+        //         stiffness: 0.9,
+        //         render: {
+        //             visible: false,
+        //         },
+        //     }),
+        // ])
+
+        // engine.timing.timeScale = 0.01
+
+        var hongery = Bodies.rectangle(0, 0, 200, 160, {
             isStatic: false,
 
             render: {
                 sprite: {
-                    yOffset: -0.02,
-                    // xOffset: 0.241,
+                    yOffset: 0.16,
+                    xOffset: 0.075,
                     xScale: 0.5,
                     yScale: 0.5,
                     texture: doggo,
@@ -61,71 +149,51 @@ export function Saucisse() {
             },
         })
 
-        var ropeA = Composites.stack(-900, 250, 16, 1, 1, 1, function (x, y) {
-            return Bodies.rectangle(x, y, 109, 53, {
+        var group = Body.nextGroup(true)
+
+        var bridge = Composites.stack(150, 290, 16, 1, 0, 0, function (x, y) {
+            return Bodies.rectangle(x, y, 180, 300, {
                 collisionFilter: { group: group },
+                density: 0.005,
                 frictionAir: 0.05,
-
-                friction: 0.7,
-
-                density: 0.004,
                 render: {
                     sprite: {
-                        yOffset: 0.25,
-                        xScale: 0.5,
+                        yOffset: -0.05,
                         yScale: 0.5,
+                        xScale: 0.5,
                         texture: sausage,
                     },
                 },
             })
         })
 
-        ropeA = Matter.Composite.add(ropeA, hongery)
+        bridge.bodies.unshift(hongery)
 
-        Composites.chain(ropeA, 0.5, 0, -0.5, 0, {
+        Composites.chain(bridge, 0.3, 0, -0.3, 0, {
             stiffness: 0.9,
             length: 0,
             render: { type: "line", strokeStyle: "#000", lineWidth: 2 },
         })
 
         Composite.add(world, [
-            ropeA,
-            // Constraint.create({
-            //     bodyB: ropeA.bodies[0],
-            //     pointA: { x: 1250, y: 700 },
-            //     length: 0,
-            //     stiffness: 0.6,
-            //     render: {
-            //         visible: false,
-            //     },
-            // }),
-            // Constraint.create({
-            //     bodyB: ropeA.bodies[ropeA.bodies.length - 1],
-            //     pointA: { x: 200, y: 0 },
-            //     length: 0,
-            //     stiffness: 0.6,
-            //     render: {
-            //         visible: false,
-            //     },
-            // }),
+            bridge,
+
             Constraint.create({
-                pointA: { x: 1250, y: 700 },
-                bodyB: ropeA.bodies[0],
+                pointA: { x: 140, y: -70 },
+                bodyB: bridge.bodies[0],
                 pointB: { x: -25, y: 0 },
                 length: 2,
-                stiffness: 0.2,
+                stiffness: 0.7,
                 render: {
                     visible: false,
                 },
             }),
             Constraint.create({
-                frictionAir: 0.07,
-                density: 0.004,
-                pointA: { x: 200, y: -70 },
-                bodyB: ropeA.bodies[ropeA.bodies.length - 1],
-                pointB: { x: 20, y: 20 },
-                length: 0.01,
-                stiffness: 0.9,
+                pointA: { x: 1300, y: 1000 },
+                bodyB: bridge.bodies[bridge.bodies.length - 1],
+                pointB: { x: 25, y: 0 },
+                length: 2,
+                stiffness: 0.7,
                 render: {
                     visible: false,
                 },
@@ -155,6 +223,7 @@ export function Saucisse() {
         )
 
         World.add(world, mouseConstraint)
+        render.mouse = mouse
     }, [
         Bodies,
         Body,
