@@ -136,7 +136,7 @@ export function Saucisse() {
         // engine.timing.timeScale = 0.01
 
         var hongery = Bodies.rectangle(0, 0, 200, 160, {
-            isStatic: false,
+            friction: Infinity,
 
             render: {
                 sprite: {
@@ -189,22 +189,57 @@ export function Saucisse() {
                 },
             }),
             Constraint.create({
-                pointA: { x: 1300, y: 1000 },
+                pointA: { x: 1300, y: 800 },
                 bodyB: bridge.bodies[bridge.bodies.length - 1],
                 pointB: { x: 25, y: 0 },
-                length: 2,
-                stiffness: 0.7,
+                length: 0,
+                stiffness: 1,
                 render: {
                     visible: false,
                 },
             }),
         ])
+        var explosion = function (engine) {
+            var bodies = Composite.allBodies(engine.world)
+
+            for (var i = 0; i < bodies.length; i++) {
+                var body = bodies[i]
+
+                if (!body.isStatic && body.position.y >= 500) {
+                    var forceMagnitude = 0.05 * body.mass
+
+                    Body.applyForce(body, body.position, {
+                        x:
+                            (forceMagnitude +
+                                Common.random() * forceMagnitude) *
+                            Common.choose([1, -1]),
+                        y: -forceMagnitude + Common.random() * -forceMagnitude,
+                    })
+                }
+            }
+        }
+
+        var counter = 0,
+            rando = 0
+
+        Events.on(engine, "beforeUpdate", function (event) {
+            counter += 1
+
+            // every 1.5 sec
+            if (counter >= 60 * rando) {
+                explosion(engine)
+
+                // reset counter
+                counter = 0
+                rando = Common.random(2, 7)
+            }
+        })
 
         var mouse = Mouse.create(render.canvas),
             mouseConstraint = MouseConstraint.create(engine, {
                 mouse: mouse,
                 constraint: {
-                    stiffness: 0.1,
+                    stiffness: 0.02,
                     render: {
                         visible: false,
                         type: "pin",
