@@ -47,10 +47,12 @@ export function Saucisse() {
 
         var group = Body.nextGroup(true)
 
-        var hongery = Bodies.rectangle(0, 0, 150, 100, {
+        var hongery = Bodies.rectangle(200, 200, 140, 160, {
+            isStatic: false,
+
             render: {
                 sprite: {
-                    // yOffset: 0.5,
+                    yOffset: -0.02,
                     // xOffset: 0.241,
                     xScale: 0.5,
                     yScale: 0.5,
@@ -59,10 +61,13 @@ export function Saucisse() {
             },
         })
 
-        var ropeA = Composites.stack(-1200, 0, 16, 1, 1, 1, function (x, y) {
+        var ropeA = Composites.stack(-900, 250, 16, 1, 1, 1, function (x, y) {
             return Bodies.rectangle(x, y, 109, 53, {
                 collisionFilter: { group: group },
-                frictionAir: 0.07,
+                frictionAir: 0.05,
+
+                // friction: 0.1,
+
                 density: 0.004,
                 render: {
                     sprite: {
@@ -77,11 +82,9 @@ export function Saucisse() {
 
         ropeA = Matter.Composite.add(ropeA, hongery)
 
-        console.log(ropeA)
-
         Composites.chain(ropeA, 0.5, 0, -0.5, 0, {
-            stiffness: 0.8,
-            length: 2,
+            stiffness: 0.9,
+            length: 0,
             render: { type: "line", strokeStyle: "#000", lineWidth: 2 },
         })
 
@@ -116,11 +119,13 @@ export function Saucisse() {
                 },
             }),
             Constraint.create({
-                pointA: { x: 200, y: 0 },
+                frictionAir: 0.07,
+                density: 0.004,
+                pointA: { x: 200, y: -70 },
                 bodyB: ropeA.bodies[ropeA.bodies.length - 1],
-                pointB: { x: 25, y: 0 },
-                length: 2,
-                stiffness: 0.2,
+                pointB: { x: 20, y: 20 },
+                length: 0.01,
+                stiffness: 0.9,
                 render: {
                     visible: false,
                 },
@@ -131,11 +136,11 @@ export function Saucisse() {
             mouseConstraint = MouseConstraint.create(engine, {
                 mouse: mouse,
                 constraint: {
-                    stiffness: 0.02,
+                    stiffness: 0.1,
                     render: {
                         visible: false,
                         type: "pin",
-                        lineWidth: 10,
+                        lineWidth: 1,
                     },
                 },
             })
