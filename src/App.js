@@ -3,9 +3,10 @@
 import { Button } from "./components/Button"
 import { Saucisse } from "./components/Saucisse"
 import { Alphabet } from "./components/Alphabet"
+import { Counter } from "./components/Counter"
 import { useThemeUI, Heading, Text, Grid, Box, Link } from "theme-ui"
 import { assets } from "./assets/assets"
-
+import React, { useState, useEffect } from "react"
 import "./index.css"
 import logo from "./assets/logo.svg"
 
@@ -21,6 +22,7 @@ function App() {
         color: "text",
         boxShadow: "dark",
     }
+
     return (
         <div className="App">
             <Box sx={{ position: "absolute", right: 0, top: 0 }}>
@@ -183,7 +185,7 @@ function App() {
                                         display: "inline",
                                     }}
                                 >
-                                    font-variation-settings: "FLOP" 0;
+                                    font-variation-settings: "FLOP" <Counter />;
                                 </Text>
                             </Box>
                             <Link href="#">

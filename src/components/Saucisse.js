@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import Matter from "matter-js"
 import sausage from "../assets/sausage.png"
+import sausageInv from "../assets/sausage-inv.png"
 import doggo from "../assets/doggo.png"
 
 export function Saucisse() {
@@ -71,10 +72,10 @@ export function Saucisse() {
                 frictionAir: 0.05,
                 render: {
                     sprite: {
-                        yOffset: -0.05,
+                        // yOffset: -0.05,
                         yScale: 0.5,
                         xScale: 0.5,
-                        texture: sausage,
+                        texture: Matter.Common.choose([sausageInv, sausage]),
                     },
                 },
             })
@@ -144,7 +145,7 @@ export function Saucisse() {
 
                 // reset counter
                 counter = 0
-                rando = Common.random(4, 8)
+                rando = Common.random(6, 9)
             }
         })
 
