@@ -9,7 +9,7 @@ export function useWindowDimension() {
         const debouncedResizeHandler = debounce(() => {
             console.log("***** debounced resize") // See the cool difference in console
             setDimension([window.innerWidth, window.innerHeight])
-        }, 100) // 100ms
+        }, 300) // 100ms
         window.addEventListener("resize", debouncedResizeHandler)
         return () =>
             window.removeEventListener("resize", debouncedResizeHandler)

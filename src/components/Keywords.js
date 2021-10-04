@@ -83,7 +83,7 @@ export const KeywordsComponent = () => {
                         }}
                         sx={{
                             position: "relative",
-                            left: "16px",
+                            left: ["-44px", "16px"],
                             gridArea: "3 / 5",
                             placeSelf: "end end",
                             ml: "10px",
@@ -101,7 +101,9 @@ export const KeywordsComponent = () => {
                         sx={{
                             gridArea: "4 / 3",
                             placeSelf: "end",
-                            zIndex: 1,
+                            zIndex: [-1, 1],
+                            left: ["-20px", null],
+                            position: "relative",
                             fontSize: [9, 9, 9, 9],
                             ...keyword,
                             borderRadius: "pill",

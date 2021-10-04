@@ -6,8 +6,7 @@ const colors = {
 }
 // const space = [0, 4, 8, 12, 16, 20, 28, 36, 48, 72, 128];
 const space = [0, 4, 8, 12, 16, 24, 32, 48, 72, 104, 128]
-const textShadowColor = "#F15D1F"
-const textShadow = `0 0 0 ${textShadowColor}, 0.0025em 0.0025em 0 ${textShadowColor}, 0.005em 0.005em 0 ${textShadowColor}, 0.0075em 0.0075em 0 ${textShadowColor}, 0.01em 0.01em 0 ${textShadowColor}, 0.0125em 0.0125em 0 ${textShadowColor}, 0.015em 0.015em 0 ${textShadowColor}, 0.0175em 0.0175em 0 ${textShadowColor}, 0.02em 0.02em 0 ${textShadowColor}, 0.0225em 0.0225em 0 ${textShadowColor}, 0.025em 0.025em 0 ${textShadowColor}, 0.0275em 0.0275em 0 ${textShadowColor}, 0.03em 0.03em 0 ${textShadowColor}, 0.0325em 0.0325em 0 ${textShadowColor}, 0.035em 0.035em 0 ${textShadowColor}, 0.0375em 0.0375em 0 ${textShadowColor}, 0.04em 0.04em 0 ${textShadowColor}, 0.0425em 0.0425em 0 ${textShadowColor}, 0.045em 0.045em 0 ${textShadowColor}, 0.0475em 0.0475em 0 ${textShadowColor}, 0.05em 0.05em 0 ${textShadowColor}, 0.0525em 0.0525em 0 ${textShadowColor}, 0.055em 0.055em 0 ${textShadowColor}, 0.0575em 0.0575em 0 ${textShadowColor}, 0.06em 0.06em 0 ${textShadowColor}, 0.0625em 0.0625em 0 ${textShadowColor}, 0.065em 0.065em 0 ${textShadowColor}, 0.0675em 0.0675em 0 ${textShadowColor}, 0.07em 0.07em 0 ${textShadowColor}, 0.0725em 0.0725em 0 ${textShadowColor}, 0.075em 0.075em 0 ${textShadowColor}, 0.0775em 0.0775em 0 ${textShadowColor}, 0.08em 0.08em 0 ${textShadowColor}, 0.0825em 0.0825em 0 ${textShadowColor}, 0.085em 0.085em 0 ${textShadowColor}, 0.0875em 0.0875em 0 ${textShadowColor}, 0.09em 0.09em 0 ${textShadowColor}, 0.0925em 0.0925em 0 ${textShadowColor}, 0.095em 0.095em 0 ${textShadowColor}, 0.0975em 0.0975em 0 ${textShadowColor}, 0.1em 0.1em 0 ${textShadowColor}`
+const textSelectColor = "#F15D1F"
 
 const animations = {
     flop: {
@@ -91,9 +90,9 @@ export default {
             lineHeight: "body",
             letterSpacing: "body",
             display: "block",
-            mb: ["0.75em"],
+
             "&::selection": {
-                color: textShadowColor,
+                color: textSelectColor,
             },
         },
         label: {
@@ -110,7 +109,7 @@ export default {
         span: {
             display: "inline",
             "&::selection": {
-                color: textShadowColor,
+                color: textSelectColor,
             },
         },
         h1: {
@@ -119,7 +118,7 @@ export default {
             fontVariationSettings: '"FLOP" 0, "ital" 0',
             lineHeight: "headingXL",
             "&::selection": {
-                textShadow: textShadow,
+                color: textSelectColor,
             },
         },
         h2: {
@@ -131,20 +130,21 @@ export default {
     },
     styles: {
         root: {
-            ...scroll,
-            overflowY: "auto",
-            overflowX: "hidden",
             backgroundColor: "primary",
             webkitFontSmoothing: "antialiased",
             MozOsxFontSmoothing: "grayscale",
             variant: "text.default",
             fontFeatureSettings: `"liga"`,
+            "& > body": {
+                ...scroll,
+            },
         },
+
         a: {
             color: "inherit",
             "&:hover": { textDecoration: "none" },
             "&::selection": {
-                color: textShadowColor,
+                color: textSelectColor,
             },
         },
         pre: {

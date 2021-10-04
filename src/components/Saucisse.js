@@ -24,10 +24,15 @@ export function SaucisseComponent() {
         Runner = Matter.Runner
 
     const [width, height] = useWindowDimension()
-    const sausageCount = useResponsiveValue([4, 10, 12, 17])
+    const sausageCount = useResponsiveValue([12, 10, 12, 16])
     const angyPosition = useResponsiveValue([
-        { x: -20, y: height / 2 },
+        { x: -320, y: 200 },
         { x: width / 2, y: -80 },
+    ])
+    const canvasHeight = useResponsiveValue([height / 2, height])
+    const endPosition = useResponsiveValue([
+        { x: width + 600, y: canvasHeight / 2 },
+        { x: width + 260, y: canvasHeight / 2 },
     ])
 
     const boxRef = useRef(null),
@@ -43,7 +48,7 @@ export function SaucisseComponent() {
             options: {
                 pixelRatio: "1",
                 width: width,
-                height: height,
+                height: canvasHeight,
                 wireframes: false,
                 background: "transparent",
             },
@@ -117,7 +122,7 @@ export function SaucisseComponent() {
 
             //end
             Constraint.create({
-                pointA: { x: width + 100, y: render.options.height / 2 },
+                pointA: endPosition,
                 bodyB: bridge.bodies[bridge.bodies.length - 1],
                 pointB: { x: 25, y: 0 },
                 length: 0,
@@ -132,7 +137,7 @@ export function SaucisseComponent() {
             mouseConstraint = MouseConstraint.create(engine, {
                 mouse: mouse,
                 constraint: {
-                    stiffness: 0.02,
+                    stiffness: 0.03,
                     render: {
                         visible: false,
                     },
@@ -141,30 +146,32 @@ export function SaucisseComponent() {
 
         mouseConstraint.mouse.element.removeEventListener(
             "mousewheel",
-            mouseConstraint.mouse.mousewheel,
-            { passive: true }
+            mouseConstraint.mouse.mousewheel
         )
         mouseConstraint.mouse.element.removeEventListener(
             "DOMMouseScroll",
-            mouseConstraint.mouse.mousewheel,
-            { passive: true }
+            mouseConstraint.mouse.mousewheel
         )
 
-        mouseConstraint.mouse.element.removeEventListener(
-            "touchmove",
-            mouseConstraint.mouse.mousemove,
-            { passive: true }
-        )
-        mouseConstraint.mouse.element.removeEventListener(
-            "touchstart",
-            mouseConstraint.mouse.mousedown,
-            { passive: true }
-        )
-        mouseConstraint.mouse.element.removeEventListener(
-            "touchend",
-            mouseConstraint.mouse.mouseup,
-            { passive: true }
-        )
+        // mouseConstraint.mouse.element.removeEventListener(
+        //     "touchmove",
+        //     mouseConstraint.mouse.mousemove,
+        //     { passive: true }
+        // )
+        // mouseConstraint.mouse.element.removeEventListener(
+        //     "touchstart",
+        //     mouseConstraint.mouse.mousedown,
+        //     { passive: true }
+        // )
+        // mouseConstraint.mouse.element.removeEventListener(
+        //     "touchend",
+        //     mouseConstraint.mouse.mouseup,
+        //     { passive: true }
+        // )
+        Render.lookAt(render, {
+            min: { x: 0, y: 0 },
+            max: { x: width, y: height },
+        })
 
         World.add(world, mouseConstraint)
 
@@ -176,13 +183,14 @@ export function SaucisseComponent() {
         Composite,
         Composites,
         Constraint,
-        Events,
         Mouse,
         MouseConstraint,
         Render,
         Runner,
         World,
         angyPosition,
+        canvasHeight,
+        endPosition,
         engine,
         height,
         sausageCount,

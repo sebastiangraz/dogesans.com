@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 
+import React from "react"
 import { Button } from "./components/Button"
 import { Saucisse } from "./components/Saucisse"
 import { Alphabet } from "./components/Alphabet"
@@ -26,7 +27,7 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="App" sx={{ position: "relative" }}>
             <Box
                 sx={{
                     // pointerEvents: ["none"],
@@ -38,10 +39,17 @@ function App() {
                 <Saucisse />
             </Box>
             <Grid py={9} gap={8} variant="grids.row">
-                <Grid columns={["1fr", "max-content auto"]}>
+                <Grid
+                    sx={{ zIndex: 1, pointerEvents: "none" }}
+                    columns={["1fr", "max-content auto"]}
+                >
                     <Grid sx={{ justifyItems: "center", userSelect: "none" }}>
                         <img src={logo} alt="Logo" />
-                        <Grid gap={3} columns={"max-content max-content"}>
+                        <Grid
+                            gap={3}
+                            sx={{ pointerEvents: "all" }}
+                            columns={"max-content max-content"}
+                        >
                             <Link href="#">
                                 <Text variant="label">Github</Text>
                             </Link>
@@ -112,8 +120,8 @@ function App() {
                 <Grid
                     mt={9}
                     mb={9}
-                    gap={8}
-                    columns={[1, null, 12]}
+                    gap={[5, 8]}
+                    columns={[1, 2, 12]}
                     sx={{ gridTemplateRows: ["1fr 1fr"] }}
                 >
                     <Box

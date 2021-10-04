@@ -11,15 +11,15 @@ const componentStyle = {
     fontSize: [4, 4, 5, 6],
     overflow: "hidden",
     boxShadow: "dark",
-    willChange: "transform",
     backgroundColor: "#000",
     // background: `url("${buttonIllustration}") no-repeat 0% 100% #000`,
     transition: "0.15s ease border-radius, 0.3s ease transform",
     transform: "scale(1)",
     borderRadius: "pill",
+    pointerEvents: "all",
+    position: "relative",
     "&:hover": {
         borderRadius: "pillHover",
-        position: "relative",
         transform: "scale(0.97)",
         svg: {
             transform: "scale(1) translateY(-50%)",
