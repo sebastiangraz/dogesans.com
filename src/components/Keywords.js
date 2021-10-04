@@ -4,10 +4,12 @@ import { Slider } from "../components/Slider"
 import { useThemeUI, Heading, Grid, Box, Text } from "theme-ui"
 import React, { useState } from "react"
 import tab from "../assets/tab.svg"
+import { scroll } from "../components/globalStyles"
 export const KeywordsComponent = () => {
     const context = useThemeUI()
     const { theme } = context
-    const [value, onChange] = useState(0.9)
+    const [value, onChange] = useState(0.5)
+
     const keyword = {
         px: [4, 5],
         py: [1, 2],
@@ -21,6 +23,7 @@ export const KeywordsComponent = () => {
     return (
         <Grid
             mt={9}
+            mb={9}
             gap={7}
             sx={{
                 justifyContent: "space-between",
@@ -36,8 +39,10 @@ export const KeywordsComponent = () => {
                 <Grid
                     sx={{
                         rowGap: "6px",
-                        gridTemplateColumns: "repeat(6, 1fr)",
+                        gridTemplateColumns: "repeat(5, 80px)",
                         gridTemplateRows: "repeat(5, 80px)",
+                        justifyContent: "center",
+                        transform: "scale(1)",
                     }}
                 >
                     <Heading
@@ -48,7 +53,7 @@ export const KeywordsComponent = () => {
                         sx={{
                             gridArea: "1 /3",
                             placeSelf: "baseline",
-                            fontSize: [6, 7, 8, 9],
+                            fontSize: [9, 9, 9, 9],
                             ...keyword,
                             borderRadius: "pill",
                         }}
@@ -65,7 +70,7 @@ export const KeywordsComponent = () => {
                             placeSelf: "end",
                             position: "relative",
                             top: "10px",
-                            fontSize: [4, 5, 7, 8],
+                            fontSize: [8, 8, 8, 8],
                             ...keyword,
                         }}
                     >
@@ -82,7 +87,7 @@ export const KeywordsComponent = () => {
                             gridArea: "3 / 5",
                             placeSelf: "end end",
                             ml: "10px",
-                            fontSize: [4, 5, 6, 8],
+                            fontSize: [8, 8, 8, 8],
                             ...keyword,
                         }}
                     >
@@ -97,7 +102,7 @@ export const KeywordsComponent = () => {
                             gridArea: "4 / 3",
                             placeSelf: "end",
                             zIndex: 1,
-                            fontSize: [6, 7, 8, 9],
+                            fontSize: [9, 9, 9, 9],
                             ...keyword,
                             borderRadius: "pill",
                         }}
@@ -114,7 +119,7 @@ export const KeywordsComponent = () => {
                             gridArea: "4 / 4",
                             placeSelf: "start",
                             mt: 3,
-                            fontSize: [4, 5, 7, 8],
+                            fontSize: [8, 8, 8, 8],
                             ...keyword,
                         }}
                     >
@@ -169,6 +174,8 @@ export const KeywordsComponent = () => {
 
                     <Text
                         sx={{
+                            ...scroll,
+                            overflowX: "auto",
                             whiteSpace: "pre",
                         }}
                     >

@@ -37,11 +37,7 @@ const componentStyle = {
 
 export const Button = ({ label, href, style }) => {
     return (
-        <Link
-            variant="shadows.dark"
-            sx={{ ...componentStyle, ...style }}
-            href={href}
-        >
+        <Link sx={{ ...componentStyle, ...style }} href={href}>
             {assets.buttonIllustration} {label}
         </Link>
     )

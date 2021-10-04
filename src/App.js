@@ -208,6 +208,27 @@ function App() {
                     </Box>
                 </Grid>
                 <Keywords />
+                <Grid
+                    mt={[0, 9]}
+                    sx={{
+                        gridTemplateColumns: ["1fr", "repeat(3, auto)"],
+                        alignItems: "center",
+                        justifyContent: ["space-between"],
+                        justifyItems: "center",
+                    }}
+                >
+                    <Text variant="label">created by sebastian graz</Text>
+
+                    <Button
+                        href="#"
+                        style={{ placeSelf: ["center", "self-end"] }}
+                        label="such download"
+                    />
+
+                    <Link href="https://www.graz.io" target="_blank">
+                        <Text variant="label">graz.io </Text>
+                    </Link>
+                </Grid>
             </Grid>
         </div>
     )
