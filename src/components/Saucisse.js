@@ -21,8 +21,6 @@ export function Saucisse() {
         Common = Matter.Common,
         Events = Matter.Events
 
-    Common.setDecomp(require("poly-decomp"))
-
     const sausageVec = Vertices.fromPath(
         `M3.61853 6.89582C5.36381 4.98144 8.13486 2.93464 12.0865 0.633704C64.7254 11.3578 94.5398 11.8496 147.826 0.653305C152.055 5.23279 153.875 8.78387 153.78 12.3413C153.683 15.9435 151.624 19.6908 147.715 24.6596C121.766 30.8322 101.378 33.8755 80.7527 33.857C60.1072 33.8385 39.1998 30.7522 12.2133 24.6414C8.86481 22.1537 6.21503 19.9624 4.36089 17.9343C2.48706 15.8847 1.47656 14.056 1.32542 12.3087C1.17625 10.5842 1.8564 8.82869 3.61853 6.89582Z`
     )
@@ -32,15 +30,13 @@ export function Saucisse() {
     var world = engine.world
 
     useEffect(() => {
-        const cw = document.body.clientWidth
-        const ch = document.body.clientHeight
         var render = Render.create({
             element: scene.current,
             engine: engine,
 
             options: {
                 width: 1200,
-                height: ch,
+                height: 1600,
                 wireframes: false,
                 background: "transparent",
             },

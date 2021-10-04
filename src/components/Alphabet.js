@@ -49,8 +49,10 @@ export const AlphabetComponent = () => {
                             <Heading
                                 key={e}
                                 variant="h1"
-                                sx={{
+                                style={{
                                     fontVariationSettings: `"ital" ${value}`,
+                                }}
+                                sx={{
                                     textAlign: "center",
                                     fontSize: [7, 8],
                                 }}
@@ -71,8 +73,10 @@ export const AlphabetComponent = () => {
                             return (
                                 <Heading
                                     key={e}
-                                    sx={{
+                                    style={{
                                         fontVariationSettings: `"ital" ${value}`,
+                                    }}
+                                    sx={{
                                         textTransform: "lowercase",
                                         textAlign: "center",
                                         fontSize: [7, 8],

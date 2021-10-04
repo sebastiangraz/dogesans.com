@@ -4,15 +4,17 @@ import { Button } from "./components/Button"
 import { Saucisse } from "./components/Saucisse"
 import { Alphabet } from "./components/Alphabet"
 import { Counter } from "./components/Counter"
+import { Keywords } from "./components/Keywords"
 import { useThemeUI, Heading, Text, Grid, Box, Link } from "theme-ui"
 import { assets } from "./assets/assets"
-import React, { useState, useEffect } from "react"
+
 import "./index.css"
 import logo from "./assets/logo.svg"
 
 function App() {
     const context = useThemeUI()
     const { theme } = context
+
     const card = {
         borderRadius: "rounded",
         display: "grid",
@@ -65,7 +67,7 @@ function App() {
                 >
                     Doge Sans typeface was created for the Dogecoin
                     cryptocurrency. But don’t let that stop you. Use it however
-                    you like, it’s free foreveeeeer!{" "}
+                    you like, it’s free foreveeeeeeeeeer!{" "}
                     <span
                         sx={{
                             width: "56px",
@@ -102,6 +104,7 @@ function App() {
 
                 <Grid
                     mt={9}
+                    mb={9}
                     gap={8}
                     columns={[1, null, 12]}
                     sx={{ gridTemplateRows: ["1fr 1fr"] }}
@@ -117,7 +120,7 @@ function App() {
                     >
                         <Heading
                             sx={{
-                                fontSize: [8, 9],
+                                fontSize: [7, 8, 9, 10],
                                 ...theme.animations.flop,
                             }}
                             variant="h1"
@@ -134,7 +137,10 @@ function App() {
                         }}
                     >
                         <Heading
-                            sx={{ fontSize: [8, 9], ...theme.animations.flop }}
+                            sx={{
+                                fontSize: [7, 8, 9, 10],
+                                ...theme.animations.flop,
+                            }}
                             variant="h1"
                         >
                             Quelque
@@ -153,7 +159,7 @@ function App() {
                             sx={{
                                 ...theme.animations.flop,
                                 fontFeatureSettings: `"dlig"`,
-                                fontSize: [8, 9],
+                                fontSize: [7, 8, 9, 10],
                             }}
                         >
                             doge
@@ -195,12 +201,13 @@ function App() {
                                         whiteSpace: "pre",
                                     }}
                                 >
-                                    view source
+                                    source
                                 </Text>
                             </Link>
                         </Grid>
                     </Box>
                 </Grid>
+                <Keywords />
             </Grid>
         </div>
     )

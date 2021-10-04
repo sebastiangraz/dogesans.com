@@ -13,6 +13,15 @@ body {
     src: url("./fonts/DogeSansVF.ttf");
 }
 
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 @keyframes flop {
     from {
         font-variation-settings: "FLOP" 0;
