@@ -46,7 +46,7 @@ export function SaucisseComponent() {
             engine: engine,
             canvas: canvasRef.current,
             options: {
-                pixelRatio: "1",
+                pixelRatio: "auto",
                 width: width,
                 height: canvasHeight,
                 wireframes: false,

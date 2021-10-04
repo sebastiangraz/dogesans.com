@@ -68,7 +68,7 @@ export default {
         body: 1.6,
         lead: 1.4,
         heading: 1.3,
-        headingXL: 1.15,
+        headingXL: [1.3, 1.15],
     },
     letterSpacings: {
         body: "0em",

@@ -22,7 +22,7 @@ export const KeywordsComponent = () => {
     }
     return (
         <Grid
-            mt={9}
+            mt={[0, 9]}
             mb={9}
             gap={7}
             sx={{
@@ -33,16 +33,20 @@ export const KeywordsComponent = () => {
         >
             <Box
                 sx={{
+                    display: "grid",
                     gridArea: [null, null, "1 / span 6", "1 / span 6"],
                 }}
             >
                 <Grid
+                    mb={[2, 8]}
                     sx={{
-                        rowGap: "6px",
+                        order: [1, 0],
+                        rowGap: "16px",
                         gridTemplateColumns: "repeat(5, 80px)",
-                        gridTemplateRows: "repeat(5, 80px)",
+                        gridTemplateRows: "repeat(4, 80px)",
                         justifyContent: "center",
-                        transform: ["scale(.65)", "scale(1)"],
+                        transformOrigin: "bottom",
+                        transform: ["scale(.85)", "scale(1)"],
                     }}
                 >
                     <Heading
@@ -51,6 +55,7 @@ export const KeywordsComponent = () => {
                             animationDuration: `${value}s`,
                         }}
                         sx={{
+                            position: "relative",
                             gridArea: "1 /3",
                             placeSelf: "baseline",
                             fontSize: [9, 9, 9, 9],
@@ -102,7 +107,7 @@ export const KeywordsComponent = () => {
                             gridArea: "4 / 3",
                             placeSelf: "end",
                             zIndex: [-1, 1],
-                            left: ["-20px", null],
+                            left: ["8px", 0],
                             position: "relative",
                             fontSize: [9, 9, 9, 9],
                             ...keyword,
@@ -117,10 +122,10 @@ export const KeywordsComponent = () => {
                             animationDuration: `${value}s`,
                         }}
                         sx={{
+                            order: [0, 1],
                             zIndex: 1,
                             gridArea: "4 / 4",
                             placeSelf: "start",
-                            mt: 3,
                             fontSize: [8, 8, 8, 8],
                             ...keyword,
                         }}
@@ -130,7 +135,7 @@ export const KeywordsComponent = () => {
                 </Grid>
                 <Text
                     sx={{
-                        width: [null, null, 320, 400],
+                        width: [320, 360, 360, 400],
                         textAlign: "center",
                         margin: "0 auto",
                     }}

@@ -37,7 +37,7 @@ export const AlphabetComponent = () => {
     const [value, onChange] = useState(49)
     return (
         <>
-            <Grid gap={[7, 9]} columns={["1fr", "1fr 1fr"]}>
+            <Grid gap={[7, 9]} columns={["1fr", null, "1fr 1fr", "1fr 1fr"]}>
                 <Grid
                     columns={[
                         "repeat( auto-fit, minmax(40px, 1fr) )",

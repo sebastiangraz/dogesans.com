@@ -120,12 +120,12 @@ function App() {
                 <Grid
                     mt={9}
                     mb={9}
-                    gap={[5, 8]}
-                    columns={[1, 2, 12]}
+                    gap={[4, null, 8, 8]}
+                    columns={[1, null, null, 12]}
                     sx={{ gridTemplateRows: ["1fr 1fr"] }}
                 >
                     <Box
-                        p={8}
+                        p={[4, 5, 6, 8]}
                         sx={{
                             ...card,
                             gridArea: [null, null, "1 / span 5"],
@@ -144,7 +144,7 @@ function App() {
                         </Heading>
                     </Box>
                     <Box
-                        p={8}
+                        p={[4, 5, 6, 8]}
                         sx={{
                             ...card,
                             boxShadow: "light",
@@ -162,7 +162,7 @@ function App() {
                         </Heading>
                     </Box>
                     <Box
-                        p={8}
+                        p={[4, 5, 6, 8]}
                         sx={{
                             ...card,
                             boxShadow: "light",
