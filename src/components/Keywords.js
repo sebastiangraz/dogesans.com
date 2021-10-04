@@ -42,7 +42,7 @@ export const KeywordsComponent = () => {
                         gridTemplateColumns: "repeat(5, 80px)",
                         gridTemplateRows: "repeat(5, 80px)",
                         justifyContent: "center",
-                        transform: "scale(1)",
+                        transform: ["scale(.65)", "scale(1)"],
                     }}
                 >
                     <Heading
@@ -181,12 +181,12 @@ export const KeywordsComponent = () => {
                     >
                         {`.wow {
     `}
-                        <span sx={{ color: "secondary" }}>
+                        <Text variant="span" sx={{ color: "secondary" }}>
                             font-feature-settings{" "}
-                        </span>
+                        </Text>
                         : {`"dlig";`}
-                        <span sx={{ color: "secondary" }}>{`
-    animation: `}</span>
+                        <Text variant="span" sx={{ color: "secondary" }}>{`
+    animation: `}</Text>
                         :{" "}
                         {`flop ${value}s infinite;
 }`}

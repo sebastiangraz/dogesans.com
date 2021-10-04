@@ -107,6 +107,12 @@ export default {
             lineHeight: "lead",
             mb: ["1.5em"],
         },
+        span: {
+            display: "inline",
+            "&::selection": {
+                color: textShadowColor,
+            },
+        },
         h1: {
             fontSize: [5, 7, 8, 8],
             fontWeight: "normal",
@@ -134,7 +140,13 @@ export default {
             variant: "text.default",
             fontFeatureSettings: `"liga"`,
         },
-        a: { color: "inherit", "&:hover": { textDecoration: "none" } },
+        a: {
+            color: "inherit",
+            "&:hover": { textDecoration: "none" },
+            "&::selection": {
+                color: textShadowColor,
+            },
+        },
         pre: {
             fontFamily: "monospace",
             overflowX: "auto",

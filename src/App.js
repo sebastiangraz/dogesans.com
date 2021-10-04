@@ -27,7 +27,14 @@ function App() {
 
     return (
         <div className="App">
-            <Box sx={{ position: "absolute", right: 0, top: 0 }}>
+            <Box
+                sx={{
+                    // pointerEvents: ["none"],
+                    position: "absolute",
+                    right: 0,
+                    top: 0,
+                }}
+            >
                 <Saucisse />
             </Box>
             <Grid py={9} gap={8} variant="grids.row">
@@ -208,6 +215,7 @@ function App() {
                     </Box>
                 </Grid>
                 <Keywords />
+                <Box sx={{ svg: { width: "100%" } }}>{assets.line}</Box>
                 <Grid
                     mt={[0, 9]}
                     sx={{

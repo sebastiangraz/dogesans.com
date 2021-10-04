@@ -1,12 +1,14 @@
 /** @jsxImportSource theme-ui */
 
-import { useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import Matter from "matter-js"
+import { useWindowDimension } from "./useWindowDimension"
 import sausage from "../assets/sausage.png"
 import sausageInv from "../assets/sausage-inv.png"
 import doggo from "../assets/doggo.png"
+import { useResponsiveValue } from "@theme-ui/match-media"
 
-export function Saucisse() {
+export function SaucisseComponent() {
     var Engine = Matter.Engine,
         World = Matter.World,
         Composite = Matter.Composite,
@@ -17,36 +19,37 @@ export function Saucisse() {
         Body = Matter.Body,
         Bodies = Matter.Bodies,
         Render = Matter.Render,
-        Vertices = Matter.Vertices,
         Common = Matter.Common,
-        Events = Matter.Events
+        Events = Matter.Events,
+        Runner = Matter.Runner
 
-    const sausageVec = Vertices.fromPath(
-        `M3.61853 6.89582C5.36381 4.98144 8.13486 2.93464 12.0865 0.633704C64.7254 11.3578 94.5398 11.8496 147.826 0.653305C152.055 5.23279 153.875 8.78387 153.78 12.3413C153.683 15.9435 151.624 19.6908 147.715 24.6596C121.766 30.8322 101.378 33.8755 80.7527 33.857C60.1072 33.8385 39.1998 30.7522 12.2133 24.6414C8.86481 22.1537 6.21503 19.9624 4.36089 17.9343C2.48706 15.8847 1.47656 14.056 1.32542 12.3087C1.17625 10.5842 1.8564 8.82869 3.61853 6.89582Z`
-    )
+    const [width, height] = useWindowDimension()
 
-    const scene = useRef()
-    var engine = Engine.create()
-    var world = engine.world
+    const boxRef = useRef(null),
+        canvasRef = useRef(null),
+        engine = Engine.create(),
+        world = engine.world
 
     useEffect(() => {
         var render = Render.create({
-            element: scene.current,
+            element: boxRef.current,
             engine: engine,
-
+            canvas: canvasRef.current,
             options: {
-                width: 1200,
-                height: 1600,
+                pixelRatio: "1",
+                width: width,
+                height: height,
                 wireframes: false,
                 background: "transparent",
             },
         })
-
-        Matter.Runner.run(engine)
-        Matter.Render.run(render)
+        Runner.run(engine, {
+            isFixed: true,
+        })
+        Render.run(render)
 
         var hongery = Bodies.rectangle(0, 0, 200, 160, {
-            friction: Infinity,
+            // friction: Infinity,
 
             render: {
                 sprite: {
@@ -61,7 +64,7 @@ export function Saucisse() {
 
         var group = Body.nextGroup(true)
 
-        var bridge = Composites.stack(150, 290, 16, 1, 0, 0, function (x, y) {
+        var bridge = Composites.stack(150, 290, 13, 1, 0, 0, function (x, y) {
             return Bodies.rectangle(x, y, 180, 300, {
                 collisionFilter: { group: group },
                 density: 0.005,
@@ -71,7 +74,7 @@ export function Saucisse() {
                         // yOffset: -0.05,
                         yScale: 0.5,
                         xScale: 0.5,
-                        texture: Matter.Common.choose([sausageInv, sausage]),
+                        texture: Common.choose([sausageInv, sausage]),
                     },
                 },
             })
@@ -152,38 +155,46 @@ export function Saucisse() {
                     stiffness: 0.02,
                     render: {
                         visible: false,
-                        type: "pin",
-                        lineWidth: 1,
                     },
                 },
             })
 
         mouseConstraint.mouse.element.removeEventListener(
             "mousewheel",
-            mouseConstraint.mouse.mousewheel
+            mouseConstraint.mouse.mousewheel,
+            { passive: true }
         )
         mouseConstraint.mouse.element.removeEventListener(
             "DOMMouseScroll",
-            mouseConstraint.mouse.mousewheel
+            mouseConstraint.mouse.mousewheel,
+            { passive: true }
         )
 
+        mouseConstraint.mouse.element.removeEventListener(
+            "touchmove",
+            mouseConstraint.mouse.mousemove,
+            { passive: true }
+        )
+        mouseConstraint.mouse.element.removeEventListener(
+            "touchstart",
+            mouseConstraint.mouse.mousedown,
+            { passive: true }
+        )
+        mouseConstraint.mouse.element.removeEventListener(
+            "touchend",
+            mouseConstraint.mouse.mouseup,
+            { passive: true }
+        )
         World.add(world, mouseConstraint)
+
         render.mouse = mouse
-    }, [
-        Bodies,
-        Body,
-        Common,
-        Composite,
-        Composites,
-        Constraint,
-        Events,
-        Mouse,
-        MouseConstraint,
-        Render,
-        World,
-        engine,
-        sausageVec,
-        world,
-    ])
-    return <div ref={scene} style={{ width: "1200px", height: "100%" }} />
+    })
+
+    return (
+        <div ref={boxRef} sx={{}} style={{ width: "100%", height: "100%" }}>
+            <canvas ref={canvasRef} />
+        </div>
+    )
 }
+
+export const Saucisse = React.memo(SaucisseComponent)
