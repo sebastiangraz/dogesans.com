@@ -24,6 +24,11 @@ export function SaucisseComponent() {
         Runner = Matter.Runner
 
     const [width, height] = useWindowDimension()
+    const sausageCount = useResponsiveValue([4, 10, 12, 17])
+    const angyPosition = useResponsiveValue([
+        { x: -20, y: height / 2 },
+        { x: width / 2, y: -80 },
+    ])
 
     const boxRef = useRef(null),
         canvasRef = useRef(null),
@@ -64,21 +69,29 @@ export function SaucisseComponent() {
 
         var group = Body.nextGroup(true)
 
-        var bridge = Composites.stack(150, 290, 13, 1, 0, 0, function (x, y) {
-            return Bodies.rectangle(x, y, 180, 300, {
-                collisionFilter: { group: group },
-                density: 0.005,
-                frictionAir: 0.05,
-                render: {
-                    sprite: {
-                        // yOffset: -0.05,
-                        yScale: 0.5,
-                        xScale: 0.5,
-                        texture: Common.choose([sausageInv, sausage]),
+        var bridge = Composites.stack(
+            width / 2,
+            290,
+            sausageCount,
+            1,
+            0,
+            0,
+            function (x, y) {
+                return Bodies.rectangle(x, y, 180, 300, {
+                    collisionFilter: { group: group },
+                    density: 0.005,
+                    frictionAir: 0.05,
+                    render: {
+                        sprite: {
+                            // yOffset: -0.05,
+                            yScale: 0.5,
+                            xScale: 0.5,
+                            texture: Common.choose([sausageInv, sausage]),
+                        },
                     },
-                },
-            })
-        })
+                })
+            }
+        )
 
         bridge.bodies.unshift(hongery)
 
@@ -90,9 +103,9 @@ export function SaucisseComponent() {
 
         Composite.add(world, [
             bridge,
-
+            //angy
             Constraint.create({
-                pointA: { x: 400, y: -80 },
+                pointA: angyPosition,
                 bodyB: bridge.bodies[0],
                 pointB: { x: -25, y: 0 },
                 length: 2,
@@ -101,8 +114,10 @@ export function SaucisseComponent() {
                     visible: false,
                 },
             }),
+
+            //end
             Constraint.create({
-                pointA: { x: 1300, y: 800 },
+                pointA: { x: width + 100, y: render.options.height / 2 },
                 bodyB: bridge.bodies[bridge.bodies.length - 1],
                 pointB: { x: 25, y: 0 },
                 length: 0,
@@ -112,41 +127,6 @@ export function SaucisseComponent() {
                 },
             }),
         ])
-        var explosion = function (engine) {
-            var bodies = Composite.allBodies(engine.world)
-
-            for (var i = 0; i < bodies.length; i++) {
-                var body = bodies[i]
-
-                if (!body.isStatic && body.position.y >= 500) {
-                    var forceMagnitude = 0.05 * body.mass
-
-                    Body.applyForce(body, body.position, {
-                        x:
-                            (forceMagnitude +
-                                Common.random() * forceMagnitude) *
-                            Common.choose([1, -1]),
-                        y: -forceMagnitude + Common.random() * -forceMagnitude,
-                    })
-                }
-            }
-        }
-
-        var counter = 0,
-            rando = 0
-
-        Events.on(engine, "beforeUpdate", function (event) {
-            counter += 1
-
-            // every 1.5 sec
-            if (counter >= 60 * rando) {
-                explosion(engine)
-
-                // reset counter
-                counter = 0
-                rando = Common.random(6, 9)
-            }
-        })
 
         var mouse = Mouse.create(render.canvas),
             mouseConstraint = MouseConstraint.create(engine, {
@@ -185,10 +165,30 @@ export function SaucisseComponent() {
             mouseConstraint.mouse.mouseup,
             { passive: true }
         )
+
         World.add(world, mouseConstraint)
 
         render.mouse = mouse
-    })
+    }, [
+        Bodies,
+        Body,
+        Common,
+        Composite,
+        Composites,
+        Constraint,
+        Events,
+        Mouse,
+        MouseConstraint,
+        Render,
+        Runner,
+        World,
+        angyPosition,
+        engine,
+        height,
+        sausageCount,
+        width,
+        world,
+    ])
 
     return (
         <div ref={boxRef} sx={{}} style={{ width: "100%", height: "100%" }}>
