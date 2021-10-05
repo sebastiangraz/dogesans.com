@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import React, { useState, useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import Matter from "matter-js"
 import { useWindowDimension } from "./useWindowDimension"
 import sausage from "../assets/sausage.png"
@@ -20,7 +20,6 @@ export function SaucisseComponent() {
         Bodies = Matter.Bodies,
         Render = Matter.Render,
         Common = Matter.Common,
-        Events = Matter.Events,
         Runner = Matter.Runner
 
     const [width, height] = useWindowDimension()
