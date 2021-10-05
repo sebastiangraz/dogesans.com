@@ -78,7 +78,7 @@ function App() {
 
                 <Heading
                     variant="h1"
-                    sx={{ maxWidth: 780, ...theme.animations.wiggle }}
+                    sx={{ maxWidth: 790, ...theme.animations.wiggle }}
                 >
                     Doge Sans typeface was created for the Dogecoin
                     cryptocurrency. But don’t let that stop you. Use it however

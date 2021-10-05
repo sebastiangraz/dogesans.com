@@ -205,10 +205,11 @@ export const KeywordsComponent = () => {
                     <Grid
                         sx={{ alignItems: "center" }}
                         columns={"auto 1fr auto"}
-                        gap={5}
+                        mt={4}
+                        gap={[3, 5]}
                     >
                         <Text variant="label" sx={{ m: 0 }}>
-                            oh lawd they shakin’
+                            oh lawd
                         </Text>
                         <Slider small inverse>
                             <input
@@ -223,7 +224,7 @@ export const KeywordsComponent = () => {
                             />
                         </Slider>
                         <Text variant="label" sx={{ m: 0 }}>
-                            sleepy boys
+                            sleepy boi
                         </Text>
                     </Grid>
                 </Box>

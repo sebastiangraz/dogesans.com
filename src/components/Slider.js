@@ -12,7 +12,7 @@ const SliderComponent = ({ children, small, inverse }) => {
     const thumb = {
         width: size,
         height: size,
-
+        borderColor: "primary",
         borderRadius: "circle",
         backgroundColor: inverseVar,
         cursor: "pointer",
