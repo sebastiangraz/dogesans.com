@@ -181,7 +181,7 @@ function App() {
                         </Heading>
                     </Box>
                     <Box sx={{ gridArea: [null, null, "2 / span 7"] }}>
-                        <Heading variant="h1" mb={6}>
+                        <Heading variant="h1" width={[400, "100%"]} mb={6}>
                             wow very expressive letters can be used with this
                             CSS recipe
                         </Heading>

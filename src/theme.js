@@ -67,8 +67,6 @@ export default {
     lineHeights: {
         body: 1.6,
         lead: 1.4,
-        heading: 1.3,
-        headingXL: [1.3, 1.15],
     },
     letterSpacings: {
         body: "0em",
@@ -87,7 +85,6 @@ export default {
             fontSize: [5, 5, 5, 6],
             fontWeight: 400,
             fontFamily: "body",
-            lineHeight: "body",
             letterSpacing: "body",
             display: "block",
 
@@ -116,7 +113,7 @@ export default {
             fontSize: [5, 7, 8, 8],
             fontWeight: "normal",
             fontVariationSettings: '"FLOP" 0, "ital" 0',
-            lineHeight: "headingXL",
+            lineHeight: ["1.4em", "1.3em", "1.1em"],
             "&::selection": {
                 color: textSelectColor,
             },

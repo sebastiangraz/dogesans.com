@@ -41,12 +41,12 @@ export const KeywordsComponent = () => {
                     mb={[2, 8]}
                     sx={{
                         order: [1, 0],
-                        rowGap: "16px",
+                        rowGap: "6px",
                         gridTemplateColumns: "repeat(5, 80px)",
                         gridTemplateRows: "repeat(4, 80px)",
                         justifyContent: "center",
                         transformOrigin: "bottom",
-                        transform: ["scale(.85)", "scale(1)"],
+                        transform: ["scale(.7)", "scale(1)"],
                     }}
                 >
                     <Heading
@@ -56,6 +56,8 @@ export const KeywordsComponent = () => {
                         }}
                         sx={{
                             position: "relative",
+                            top: ["-24px", null, "0px", "0px"],
+
                             gridArea: "1 /3",
                             placeSelf: "baseline",
                             fontSize: [9, 9, 9, 9],
@@ -107,7 +109,7 @@ export const KeywordsComponent = () => {
                             gridArea: "4 / 3",
                             placeSelf: "end",
                             zIndex: [-1, 1],
-                            left: ["8px", 0],
+                            left: ["-20px", 0],
                             position: "relative",
                             fontSize: [9, 9, 9, 9],
                             ...keyword,
@@ -122,8 +124,10 @@ export const KeywordsComponent = () => {
                             animationDuration: `${value}s`,
                         }}
                         sx={{
-                            order: [0, 1],
                             zIndex: 1,
+                            position: "relative",
+                            left: ["-8px", "0px"],
+                            top: "10px",
                             gridArea: "4 / 4",
                             placeSelf: "start",
                             fontSize: [8, 8, 8, 8],
@@ -135,7 +139,7 @@ export const KeywordsComponent = () => {
                 </Grid>
                 <Text
                     sx={{
-                        width: [320, 360, 360, 400],
+                        width: ["100%", 360, 360, 400],
                         textAlign: "center",
                         margin: "0 auto",
                     }}
@@ -203,7 +207,9 @@ export const KeywordsComponent = () => {
                         columns={"auto 1fr auto"}
                         gap={5}
                     >
-                        <Text sx={{ m: 0 }}>excite</Text>
+                        <Text variant="label" sx={{ m: 0 }}>
+                            oh lawd they shakin’
+                        </Text>
                         <Slider small inverse>
                             <input
                                 onChange={({ target: { value: radius } }) => {
@@ -216,7 +222,9 @@ export const KeywordsComponent = () => {
                                 max="1"
                             />
                         </Slider>
-                        <Text sx={{ m: 0 }}>sleepy</Text>
+                        <Text variant="label" sx={{ m: 0 }}>
+                            sleepy boys
+                        </Text>
                     </Grid>
                 </Box>
             </Box>
