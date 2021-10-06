@@ -73,7 +73,7 @@ function App() {
                         }}
                     >
                         <Button
-                            href="https://graz.s3.eu-west-2.amazonaws.com/DogeSansVF.ttf"
+                            href="https://graz.s3.eu-west-2.amazonaws.com/dogesans.zip"
                             target="_blank"
                             style={{ placeSelf: "self-end" }}
                             label="such download"
@@ -216,7 +216,10 @@ function App() {
                                     font-variation-settings: "FLOP" <Counter />;
                                 </Text>
                             </Box>
-                            <Link href="#">
+                            <Link
+                                href="https://codepen.io/umbriel/pen/bGRPyJL"
+                                target="_blank"
+                            >
                                 <Text
                                     sx={{
                                         display: "inline",
@@ -244,7 +247,7 @@ function App() {
 
                     <Button
                         target="_blank"
-                        href="https://graz.s3.eu-west-2.amazonaws.com/DogeSansVF.ttf"
+                        href="https://graz.s3.eu-west-2.amazonaws.com/dogesans.zip"
                         style={{ placeSelf: ["center", "self-end"] }}
                         label="such download"
                     />
