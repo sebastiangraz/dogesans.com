@@ -171,7 +171,7 @@ function App() {
                                 }}
                                 variant="h1"
                             >
-                                grr
+                                g
                             </Heading>
                         </Box>
                         <Box
@@ -191,7 +191,7 @@ function App() {
                                 }}
                                 variant="h1"
                             >
-                                Quirky
+                                Q
                             </Heading>
                         </Box>
                         <Box

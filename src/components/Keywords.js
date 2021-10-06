@@ -224,7 +224,7 @@ export const KeywordsComponent = () => {
                             />
                         </Slider>
                         <Text variant="label" sx={{ m: 0 }}>
-                            sleepy boi
+                            sleepy bois
                         </Text>
                     </Grid>
                 </Box>
