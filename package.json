@@ -13,6 +13,7 @@
     "poly-decomp": "^0.3.0",
     "react": "^0.0.0-experimental-7d38e4fd8-20210930",
     "react-dom": "^0.0.0-experimental-7d38e4fd8-20210930",
+    "react-intersection-observer": "^8.32.1",
     "react-scripts": "4.0.3",
     "theme-ui": "^0.11.3",
     "web-vitals": "^1.0.1"

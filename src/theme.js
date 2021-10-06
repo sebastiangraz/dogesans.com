@@ -15,6 +15,7 @@ const animations = {
         animationTimingFunction: "cubic-bezier(1, 0.82, 0.165, 1)",
         animationDirection: "alternate",
         animationIterationCount: "infinite",
+        textRendering: "optimizeSpeed",
     },
     wiggle: {
         animationName: "flop",
@@ -22,6 +23,7 @@ const animations = {
         animationTimingFunction: "linear",
         animationDirection: "alternate",
         animationIterationCount: "infinite",
+        textRendering: "optimizeSpeed",
     },
 }
 export const scroll = {

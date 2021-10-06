@@ -94,6 +94,7 @@ export const AlphabetComponent = () => {
                 sx={{ alignItems: "center" }}
                 columns={"auto 1fr auto"}
                 gap={5}
+                mt={7}
             >
                 <Heading variant="h1">normal</Heading>
                 <Slider>

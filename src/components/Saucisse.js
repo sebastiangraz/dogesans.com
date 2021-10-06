@@ -62,7 +62,7 @@ export function SaucisseComponent() {
 
             render: {
                 sprite: {
-                    yOffset: 0.16,
+                    yOffset: 0.31,
                     xOffset: 0.075,
                     xScale: 0.5,
                     yScale: 0.5,
