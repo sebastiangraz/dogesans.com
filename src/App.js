@@ -241,7 +241,7 @@ function App() {
                                         }}
                                     >
                                         font-variation-settings: "FLOP"{" "}
-                                        {/* <Counter />; */}
+                                        <Counter />;
                                     </Text>
                                 </Box>
                                 <Link
