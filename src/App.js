@@ -67,7 +67,8 @@ function App() {
                         }}
                     >
                         <Button
-                            href="#"
+                            href="https://graz.s3.eu-west-2.amazonaws.com/DogeSansVF.ttf"
+                            target="_blank"
                             style={{ placeSelf: "self-end" }}
                             label="such download"
                         />
@@ -236,7 +237,8 @@ function App() {
                     <Text variant="label">created by sebastian graz</Text>
 
                     <Button
-                        href="#"
+                        target="_blank"
+                        href="https://graz.s3.eu-west-2.amazonaws.com/DogeSansVF.ttf"
                         style={{ placeSelf: ["center", "self-end"] }}
                         label="such download"
                     />
