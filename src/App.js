@@ -96,7 +96,7 @@ function App() {
                     <Heading
                         variant="h1"
                         sx={{
-                            overflow: "hidden",
+                            // overflow: "hidden",
                             maxWidth: 790,
                             ...theme.animations.wiggle,
                         }}
@@ -104,20 +104,7 @@ function App() {
                         Doge Sans typeface was created for the Dogecoin
                         cryptocurrency. But don’t let that stop you. Use it
                         however you like. It’s free foreveeeeeeeeeer!{" "}
-                        <span
-                            sx={{
-                                display: "inline-block",
-                                width: "56px",
-                                marginLeft: [3, 4],
-                                position: "relative",
-                                svg: {
-                                    position: "absolute",
-                                    top: ["-16px", "-36px", "-40px", "-50px"],
-                                    left: 0,
-                                    height: ["24px", "64px", "72px"],
-                                },
-                            }}
-                        >
+                        <span sx={{ svg: { height: "1em", width: "auto" } }}>
                             {assets.snoot}
                         </span>
                     </Heading>
@@ -171,7 +158,7 @@ function App() {
                                 }}
                                 variant="h1"
                             >
-                                g
+                                grr
                             </Heading>
                         </Box>
                         <Box
@@ -191,7 +178,7 @@ function App() {
                                 }}
                                 variant="h1"
                             >
-                                Q
+                                Quirky
                             </Heading>
                         </Box>
                         <Box

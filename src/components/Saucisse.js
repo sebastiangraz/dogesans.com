@@ -28,7 +28,7 @@ export function SaucisseComponent() {
         { x: -320, y: 200 },
         { x: width / 2, y: -80 },
     ])
-    const canvasHeight = useResponsiveValue([height / 2, height])
+    const canvasHeight = useResponsiveValue([height / 2.25, height])
     const endPosition = useResponsiveValue([
         { x: width + 600, y: canvasHeight / 2 },
         { x: width + 260, y: canvasHeight / 2 },
@@ -124,8 +124,8 @@ export function SaucisseComponent() {
                 pointA: endPosition,
                 bodyB: bridge.bodies[bridge.bodies.length - 1],
                 pointB: { x: 25, y: 0 },
-                length: 0,
-                stiffness: 1,
+                length: 1,
+                stiffness: 0.9,
                 render: {
                     visible: false,
                 },
@@ -182,6 +182,7 @@ export function SaucisseComponent() {
         Composite,
         Composites,
         Constraint,
+        Engine,
         Mouse,
         MouseConstraint,
         Render,
@@ -198,7 +199,7 @@ export function SaucisseComponent() {
     ])
 
     return (
-        <div ref={boxRef} sx={{}} style={{ width: "100%", height: "100%" }}>
+        <div ref={boxRef} style={{ width: "100%", height: "100%" }}>
             <canvas ref={canvasRef} />
         </div>
     )
