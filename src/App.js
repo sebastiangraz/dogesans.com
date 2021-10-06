@@ -50,10 +50,16 @@ function App() {
                             sx={{ pointerEvents: "all" }}
                             columns={"max-content max-content"}
                         >
-                            <Link href="#">
+                            <Link
+                                target="_blank"
+                                href="https://github.com/sebastiangraz/dogesans"
+                            >
                                 <Text variant="label">Github</Text>
                             </Link>
-                            <Link href="#">
+                            <Link
+                                target="_blank"
+                                href="https://dogechain.info/address/DP95Tn2dihHUch7Kw81c7ErEQ3Dsc3m48E?__cf_chl_jschl_tk__=pmd_s_9pUV.TXQPYQihaxGp55_UpN4VMJeN2mZHHlDwkKM4-1633522342-0-gqNtZGzNAhCjcnBszQrR"
+                            >
                                 <Text variant="label">Donate</Text>
                             </Link>
                         </Grid>
@@ -83,7 +89,7 @@ function App() {
                 >
                     Doge Sans typeface was created for the Dogecoin
                     cryptocurrency. But don’t let that stop you. Use it however
-                    you like, it’s free foreveeeeeeeeeer!{" "}
+                    you like. It’s free foreveeeeeeeeeer!{" "}
                     <span
                         sx={{
                             width: "56px",
