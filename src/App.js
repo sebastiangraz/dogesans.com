@@ -63,7 +63,7 @@ function App() {
                                 </Link>
                                 <Link
                                     target="_blank"
-                                    href="https://dogechain.info/address/DP95Tn2dihHUch7Kw81c7ErEQ3Dsc3m48E?__cf_chl_jschl_tk__=pmd_s_9pUV.TXQPYQihaxGp55_UpN4VMJeN2mZHHlDwkKM4-1633522342-0-gqNtZGzNAhCjcnBszQrR"
+                                    href="https://dogechain.info/address/DCEmGsBFsSmEqL4p5aoNaMXphaFrMG5eMH"
                                 >
                                     <Text variant="label">Donate</Text>
                                 </Link>
