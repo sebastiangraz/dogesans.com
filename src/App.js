@@ -61,14 +61,14 @@ function App() {
                                 >
                                     <Text variant="label">Github</Text>
                                 </Link>
-                                /*
+                                {/*
                                 <Link
                                     target="_blank"
                                     href="https://dogechain.info/address/DCEmGsBFsSmEqL4p5aoNaMXphaFrMG5eMH"
                                 >
                                     <Text variant="label">Donate</Text>
                                 </Link>
-                                */
+                                */}
                             </Grid>
                         </Grid>
                     </ScrollFade>
